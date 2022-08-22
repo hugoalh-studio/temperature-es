@@ -24,14 +24,14 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 
 | **Unit** | **Symbol** | **Symbol Lowercase** | **Name** | **Name Lowercase** |
 |:-:|:-:|:-:|:-:|:-:|
+| Kelvin ***\[SI\]*** | `K` | `k` | `Kelvin` | `kelvin` |
 | Celsius | `C` | `c` | `Celsius` | `celsius` |
-| Fahrenheit | `F` | `f` | `Fahrenheit` | `fahrenheit` |
-| Kelvin | `K` | `k` | `Kelvin` | `kelvin` |
-| Rankine | `R` | `r` | `Rankine` | `rankine` |
 | Delisle | `De` | `de` | `Delisle` | `delisle` |
-| Sir Isaac Newton's degree of temperature (Newton) | `N` | `n` | `Newton` | `newton` |
+| Fahrenheit | `F` | `f` | `Fahrenheit` | `fahrenheit` |
+| Rankine | `R` | `r` | `Rankine` | `rankine` |
 | Réaumur | `Re` | `re` | `Reaumur` | `reaumur` |
 | Rømer | `Ro` | `ro` | `Roemer`, `Romer` | `roemer`, `romer` |
+| Sir Isaac Newton's degree of temperature (Newton) | `N` | `n` | `Newton` | `newton` |
 
 > **📋 Note:**
 >
