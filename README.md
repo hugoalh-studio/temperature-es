@@ -33,7 +33,7 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 | Réaumur | `Re` | `re` | `Reaumur` | `reaumur` |
 | Rømer | `Ro` | `ro` | `Roemer`, `Romer` | `roemer`, `romer` |
 
-> **📋 Note**
+> **📋 Note:**
 >
 > - Degree symbol (`°`) is not used in here.
 > - In order to fulfill the JavaScript namespace naming requirement, some characters are replaced (e.g.: `é` to `e`, `ø` to `o`).
