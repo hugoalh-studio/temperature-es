@@ -33,20 +33,20 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 | Rømer | `Ro` | `ro` | `Roemer`, `Romer` | `roemer`, `romer` |
 | Sir Isaac Newton's degree of temperature (Newton) | `N` | `n` | `Newton` | `newton` |
 
-> **📋 Note:**
->
-> - Degree symbol (`°`) is not used in here.
-> - In order to fulfill the JavaScript namespace naming requirement, some characters are replaced (e.g.: `é` to `e`, `ø` to `o`).
-> - This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. The largest integer number which can be represented by a JavaScript `Number` is ±9007199254740992 (±2<sup>53</sup>). Because of the limited precision of floating point numbers round-off errors can occur during calculations:
->   ```js
->   0.1 + 0.2;
->   //=> 0.30000000000000004
->   ```
->   In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
->   ```js
->   (0.1 + 0.2).toPrecision(14);
->   //=> 0.3
->   ```
+### 📋 Note
+
+- Degree symbol (`°`) is not used in here.
+- In order to fulfill the JavaScript namespace naming requirement, some characters are replaced (e.g.: `é` to `e`, `ø` to `o`).
+- This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. The largest integer number which can be represented by a JavaScript `Number` is ±9007199254740992 (±2<sup>53</sup>). Because of the limited precision of floating point numbers round-off errors can occur during calculations:
+  ```js
+  0.1 + 0.2;
+  //=> 0.30000000000000004
+  ```
+  In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
+  ```js
+  (0.1 + 0.2).toPrecision(14);
+  //=> 0.3
+  ```
 
 ## 📚 Documentation
 
