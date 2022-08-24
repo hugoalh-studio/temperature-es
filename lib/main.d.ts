@@ -5,6 +5,16 @@ export = Temperature;
  */
 declare class Temperature {
     /**
+     * @static
+     * @method difference
+     * @description Calculate temperature difference by units.
+     * @param {Temperature} a
+     * @param {Temperature} b
+     * @returns {TemperatureDifference}
+     */
+    static difference(a: Temperature, b: Temperature): TemperatureDifference;
+    static diff: typeof Temperature.difference;
+    /**
      * @constructor
      * @param {number} value Value.
      * @param {string} [unit="K"] Unit.
@@ -44,5 +54,17 @@ declare class Temperature {
     get n(): number;
     get N(): number;
     get Newton(): number;
+}
+/**
+ * @class TemperatureDifference
+ * @description Calculate temperature difference by units.
+ */
+declare class TemperatureDifference extends Temperature {
+    /**
+     * @constructor
+     * @param {Temperature} a
+     * @param {Temperature} b
+     */
+    constructor(a: Temperature, b: Temperature);
 }
 //# sourceMappingURL=main.d.ts.map

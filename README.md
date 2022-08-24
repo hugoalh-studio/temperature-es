@@ -78,7 +78,8 @@ import Temperature from "@hugoalh/temperature";
 #### Class
 
 ```ts
-Temperature(value: number, unit?: string = "K")
+new Temperature(value: number, unit?: string = "K"): Temperature
+Temperature.difference(a: Temperature, b: Temperature): TemperatureDifference
 ```
 
 ### Example
