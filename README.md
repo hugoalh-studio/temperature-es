@@ -22,16 +22,16 @@ A NodeJS module to convert temperature units.
 
 Units of temperature are from [Wikipedia - Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature).
 
-| **Unit** | **Symbol** | **Symbol Lowercase** | **Name** | **Name Lowercase** |
+| **Unit** | **Symbol (Standard)** | **Symbol (Exclusive)** | **Name (Upper Camel Case)** | **Name (Lower Camel Case)** |
 |:-:|:-:|:-:|:-:|:-:|
-| Kelvin ***\[SI\]*** | `K` | `k` | `Kelvin` | `kelvin` |
-| Celsius | `C` | `c` | `Celsius` | `celsius` |
-| Delisle | `De` | `de` | `Delisle` | `delisle` |
-| Fahrenheit | `F` | `f` | `Fahrenheit` | `fahrenheit` |
-| Rankine | `R` | `r` | `Rankine` | `rankine` |
-| Réaumur | `Re` | `re` | `Reaumur` | `reaumur` |
-| Rømer | `Ro` | `ro` | `Roemer`, `Romer` | `roemer`, `romer` |
-| Sir Isaac Newton's degree of temperature (Newton) | `N` | `n` | `Newton` | `newton` |
+| Kelvin ***\[SI\]*** | `K` |  | `Kelvin` | `kelvin` |
+| Celsius | `C` |  | `Celsius` | `celsius` |
+| Delisle | `D` | `De` | `Delisle` | `delisle` |
+| Fahrenheit | `F` |  | `Fahrenheit` | `fahrenheit` |
+| Rankine | `R` / `Ra` |  |`Rankine` | `rankine` |
+| Réaumur | `Re` / `r` |  | `Reaumur` | `reaumur` |
+| Rømer | `Ro` |  | `Roemer` / `Romer` | `roemer` / `romer` |
+| Sir Isaac Newton's degree of temperature (Newton) | `N` |  | `Newton` | `newton` |
 
 ### 📋 Note
 
@@ -47,6 +47,107 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
   (0.1 + 0.2).toPrecision(14);
   //=> 0.3
   ```
+
+### ⚖ Conversion
+
+<table>
+<tr>
+<td align="center"><b>Unit</b></td>
+<td align="center"><b>To SI Unit</b></td>
+<td align="center"><b>From SI Unit</b></td>
+</tr>
+<tr>
+<td align="center">Celsius</td>
+<td align="center">
+
+$$K = C + 273.15$$
+
+</td>
+<td align="center">
+
+$$C = K - 273.15$$
+
+</td>
+</tr>
+<tr>
+<td align="center">Delisle</td>
+<td align="center">
+
+$$K = 373.15 - D \div 1.5$$
+
+</td>
+<td align="center">
+
+$$D = (373.15 - K) \times 1.5$$
+
+</td>
+</tr>
+<tr>
+<td align="center">Fahrenheit</td>
+<td align="center">
+
+$$K = (F + 459.67) \div 1.8$$
+
+</td>
+<td align="center">
+
+$$F = K \times 1.8 - 459.67$$
+
+</td>
+</tr>
+<tr>
+<td align="center">Rankine</td>
+<td align="center">
+
+$$K = R \div 1.8$$
+
+</td>
+<td align="center">
+
+$$R = K \times 1.8$$
+
+</td>
+</tr>
+<tr>
+<td align="center">Réaumur</td>
+<td align="center">
+
+$$K = Re \times 1.25 + 273.15$$
+
+</td>
+<td align="center">
+
+$$Re = (K - 273.15) \times 0.8$$
+
+</td>
+</tr>
+<tr>
+<td align="center">Rømer</td>
+<td align="center">
+
+$$K = (Ro - 7.5) \div 0.525 + 273.15$$
+
+</td>
+<td align="center">
+
+$$Ro = (K - 273.15) \times 0.525 + 7.5$$
+
+</td>
+</tr>
+<tr>
+<td align="center">Sir Isaac Newton's degree of temperature (Newton)</td>
+<td align="center">
+
+$$K = N \div 0.33 + 273.15$$
+
+</td>
+<td align="center">
+
+$$N = (K - 273.15) \times 0.33$$
+
+</td>
+</tr>
+</table>
 
 ## 📚 Documentation
 
