@@ -25,13 +25,13 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 | **Unit** | **Symbol (\*: Exclusive)** | **Camel Case Name** | **Formula of Convert to SI Unit** | **Formula of Convert from SI Unit** |
 |:-:|:-:|:-:|:--|:--|
 | Kelvin ***\[SI\]*** | `K` | `Kelvin` / `kelvin` |  |  |
-| Celsius | `C` | `Celsius` / `celsius` | $K = C + 273.15$ | $C = K - 273.15$ |
-| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` | $K = 373.15 - D \div 1.5$ | $D = \left( 373.15 - K \right) \times 1.5$ |
-| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` | $K = \left( F + 459.67 \right) \div 1.8$ | $F = K \times 1.8 - 459.67$ |
-| Rankine | `R` / `Ra` | `Rankine` / `rankine` | $K = R \div 1.8$ | $R = K \times 1.8$ |
-| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` | $K = Re \times 1.25 + 273.15$ | $Re = \left( K - 273.15 \right) \times 0.8$ |
-| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` | $K = \left( Ro - 7.5 \right) \div 0.525 + 273.15$ | $Ro = \left( K - 273.15 \right) \times 0.525 + 7.5$ |
-| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` | $K = N \div 0.33 + 273.15$ | $N = \left( K - 273.15 \right) \times 0.33$ |
+| Celsius | `C` | `Celsius` / `celsius` | $T_{K} = T_{C} + 273.15$ | $T_{C} = T_{K} - 273.15$ |
+| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` | $T_{K} = 373.15 - T_{D} \div 1.5$ | $T_{D} = \left( 373.15 - T_{K} \right) \times 1.5$ |
+| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` | $T_{K} = \left( T_{F} + 459.67 \right) \div 1.8$ | $T_{F} = T_{K} \times 1.8 - 459.67$ |
+| Rankine | `R` / `Ra` | `Rankine` / `rankine` | $T_{K} = T_{R} \div 1.8$ | $T_{R} = T_{K} \times 1.8$ |
+| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` | $T_{K} = T_{Re} \times 1.25 + 273.15$ | $T_{Re} = \left( T_{K} - 273.15 \right) \times 0.8$ |
+| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` | $T_{K} = \left( T_{Ro} - 7.5 \right) \div 0.525 + 273.15$ | $T_{Ro} = \left( T_{K} - 273.15 \right) \times 0.525 + 7.5$ |
+| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` | $T_{K} = T_{N} \div 0.33 + 273.15$ | $T_{N} = \left( T_{K} - 273.15 \right) \times 0.33$ |
 
 ### 📋 Note
 
