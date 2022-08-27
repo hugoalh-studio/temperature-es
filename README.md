@@ -26,12 +26,12 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 |:-:|:-:|:-:|:--|:--|
 | Kelvin ***\[SI\]*** | `K` | `Kelvin` / `kelvin` |  |  |
 | Celsius | `C` | `Celsius` / `celsius` | $K = C + 273.15$ | $C = K - 273.15$ |
-| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` | $K = 373.15 - D \div 1.5$ | $D = (373.15 - K) \times 1.5$ |
-| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` | $K = (F + 459.67) \div 1.8$ | $F = K \times 1.8 - 459.67$ |
+| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` | $K = 373.15 - D \div 1.5$ | $D = \left( 373.15 - K \right) \times 1.5$ |
+| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` | $K = \left( F + 459.67 \right) \div 1.8$ | $F = K \times 1.8 - 459.67$ |
 | Rankine | `R` / `Ra` | `Rankine` / `rankine` | $K = R \div 1.8$ | $R = K \times 1.8$ |
-| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` | $K = Re \times 1.25 + 273.15$ | $Re = (K - 273.15) \times 0.8$ |
-| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` | $K = (Ro - 7.5) \div 0.525 + 273.15$ | $Ro = (K - 273.15) \times 0.525 + 7.5$ |
-| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` | $K = N \div 0.33 + 273.15$ | $N = (K - 273.15) \times 0.33$ |
+| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` | $K = Re \times 1.25 + 273.15$ | $Re = \left( K - 273.15 \right) \times 0.8$ |
+| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` | $K = \left( Ro - 7.5 \right) \div 0.525 + 273.15$ | $Ro = \left( K - 273.15 \right) \times 0.525 + 7.5$ |
+| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` | $K = N \div 0.33 + 273.15$ | $N = \left( K - 273.15 \right) \times 0.33$ |
 
 ### 📋 Note
 
