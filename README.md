@@ -84,7 +84,7 @@ import Temperature from "@hugoalh/temperature";
 <li>
 
 ```ts
-@constructor(value: number, unit?: string = "K"): Temperature
+@constructor(value: number, unit: string = "K"): Temperature
 ```
 
 </li>
