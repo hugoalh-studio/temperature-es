@@ -33,7 +33,7 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 | Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` | $T_{K} = \left( T_{Ro} - 7.5 \right) \div 0.525 + 273.15$ | $T_{Ro} = \left( T_{K} - 273.15 \right) \times 0.525 + 7.5$ |
 | Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` | $T_{K} = T_{N} \div 0.33 + 273.15$ | $T_{N} = \left( T_{K} - 273.15 \right) \times 0.33$ |
 
-### 📋 Note
+### 📋 Notice
 
 - Degree symbol (`°`) is not used in here.
 - In order to fulfill the JavaScript namespace naming requirement, some characters are replaced (e.g.: `é` to `e`, `ø` to `o`).
