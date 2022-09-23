@@ -1,6 +1,6 @@
 {
 	"name": "@hugoalh/temperature",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A module to convert temperature units.",
 	"keywords": [
 		"conversion",
@@ -28,9 +28,13 @@
 		"type": "git",
 		"url": "git+https://github.com/hugoalh-studio/temperature-nodejs.git"
 	},
+	"devDependencies": {
+		"eslint": "^8.23.1",
+		"eslint-plugin-only-warn": "^1.0.3",
+		"typescript": "^4.8.3"
+	},
 	"engines": {
-		"node": ">= 6.9.0",
-		"npm": ">= 3.10.8"
+		"node": ">=6.9.0"
 	},
 	"private": false
 }
