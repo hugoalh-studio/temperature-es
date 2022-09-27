@@ -22,16 +22,32 @@ A NodeJS module to convert temperature units.
 
 Units of temperature are from [Wikipedia - Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature).
 
-| **Unit** | **Symbol (\*: Exclusive)** | **Camel Case Name** | **Formula of Convert to SI Unit** | **Formula of Convert from SI Unit** |
-|:-:|:-:|:-:|:--|:--|
-| Kelvin ***\[SI\]*** | `K` | `Kelvin` / `kelvin` |  |  |
-| Celsius | `C` | `Celsius` / `celsius` | $T_{K} = T_{C} + 273.15$ | $T_{C} = T_{K} - 273.15$ |
-| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` | $T_{K} = 373.15 - T_{D} \div 1.5$ | $T_{D} = \left( 373.15 - T_{K} \right) \times 1.5$ |
-| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` | $T_{K} = \left( T_{F} + 459.67 \right) \div 1.8$ | $T_{F} = T_{K} \times 1.8 - 459.67$ |
-| Rankine | `R` / `Ra` | `Rankine` / `rankine` | $T_{K} = T_{R} \div 1.8$ | $T_{R} = T_{K} \times 1.8$ |
-| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` | $T_{K} = T_{Re} \times 1.25 + 273.15$ | $T_{Re} = \left( T_{K} - 273.15 \right) \times 0.8$ |
-| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` | $T_{K} = \left( T_{Ro} - 7.5 \right) \div 0.525 + 273.15$ | $T_{Ro} = \left( T_{K} - 273.15 \right) \times 0.525 + 7.5$ |
-| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` | $T_{K} = T_{N} \div 0.33 + 273.15$ | $T_{N} = \left( T_{K} - 273.15 \right) \times 0.33$ |
+| **Unit** | **Symbol (\*: Exclusive)** | **Camel Case Name** |
+|:-:|:-:|:-:|
+| Kelvin ***\[SI\]*** | `K` | `Kelvin` / `kelvin` |
+| Celsius | `C` | `Celsius` / `celsius` |
+| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` |
+| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` |
+| Rankine | `R` / `Ra` | `Rankine` / `rankine` |
+| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` |
+| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` |
+| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` |
+
+<details>
+<summary><b>Conversion Formula</b></summary>
+
+| **Unit** | **To SI Unit** | **From SI Unit** |
+|:-:|:--|:--|
+| Kelvin ***\[SI\]*** |  |  |
+| Celsius | $T_{K} = T_{C} + 273.15$ | $T_{C} = T_{K} - 273.15$ |
+| Delisle | $T_{K} = 373.15 - T_{D} \div 1.5$ | $T_{D} = \left( 373.15 - T_{K} \right) \times 1.5$ |
+| Fahrenheit | $T_{K} = \left( T_{F} + 459.67 \right) \div 1.8$ | $T_{F} = T_{K} \times 1.8 - 459.67$ |
+| Rankine | $T_{K} = T_{R} \div 1.8$ | $T_{R} = T_{K} \times 1.8$ |
+| Réaumur | $T_{K} = T_{Re} \times 1.25 + 273.15$ | $T_{Re} = \left( T_{K} - 273.15 \right) \times 0.8$ |
+| Rømer | $T_{K} = \left( T_{Ro} - 7.5 \right) \div 0.525 + 273.15$ | $T_{Ro} = \left( T_{K} - 273.15 \right) \times 0.525 + 7.5$ |
+| Sir Isaac Newton's degree of temperature (Newton) | $T_{K} = T_{N} \div 0.33 + 273.15$ | $T_{N} = \left( T_{K} - 273.15 \right) \times 0.33$ |
+
+</details>
 
 ### 📋 Notice
 
