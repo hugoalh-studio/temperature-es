@@ -93,25 +93,10 @@ import Temperature from "@hugoalh/temperature";
 
 #### Class
 
-<ul>
-<li><code>Temperature</code></li>
-<ul>
-<li>
-
 ```ts
-@constructor(value: number, unit: string = "K"): Temperature
+Temperature(value: number, unit: string = "K"): Temperature;
+  static .difference(a: Temperature, b: Temperature): TemperatureDifference;
 ```
-
-</li>
-<li>
-
-```ts
-static difference(a: Temperature, b: Temperature): TemperatureDifference
-```
-
-</li>
-</ul>
-</ul>
 
 ### Example
 
