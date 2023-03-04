@@ -101,9 +101,9 @@ Temperature(value: number, unit: string = "K"): Temperature;
 ### Example
 
 ```js
-new Temperature(25, "C").K
+new Temperature(25, "C").K;
 //=> 298.15
 
-new Temperature(298.15).C
+new Temperature(298.15).C;
 //=> 25
 ```
