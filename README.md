@@ -94,8 +94,17 @@ import Temperature from "@hugoalh/temperature";
 #### Class
 
 ```ts
-Temperature(value: number, unit: string = "K"): Temperature;
-  static .difference(a: Temperature, b: Temperature): TemperatureDifference;
+new Temperature(value: number, unit: string = "K"): Temperature;
+  .C: number;
+  .D: number;
+  .F: number;
+  .K: number;
+  .N: number;
+  .R: number;
+  .Re: number;
+  .Ro: number;
+
+Temperature.difference(a: Temperature, b: Temperature): TemperatureDifference;
 ```
 
 ### Example
