@@ -1,6 +1,6 @@
 {
 	"name": "@hugoalh/temperature",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"description": "A module to convert temperature units.",
 	"keywords": [
 		"conversion",
