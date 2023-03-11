@@ -86,7 +86,7 @@ const Temperature = require("@hugoalh/temperature");
 ##### ModuleJS
 
 ```js
-import Temperature from "@hugoalh/temperature";
+import Temperature from "@hugoalh/temperature";// Default Import
 ```
 
 ### API
