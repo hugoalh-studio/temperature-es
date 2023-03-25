@@ -11,12 +11,10 @@
 > | ❌{🐛} | **No (Issue):** Not supported due to confirmed contains bugs and/or issues. |
 > | ❌{🧓} | **No (Old):** Not supported due to too old. |
 
-| **Versions** | **Status** | **Target - NodeJS** | **Target - NPM** |
-|:-:|:-:|:-:|:-:|
+| **Versions** | **Status** | **Target - NodeJS** |
+|:-:|:-:|:-:|
 | v1.2.X | L | >= v6.9.0 | *N/A* |
-| v1.2.0 | 👎{🧓} | >= v6.9.0 | >= v3.10.8 |
-| v1.1.X | 👎{🧓} | >= v6.9.0 | >= v3.10.8 |
-| v1.0.X | 👎{🧓} | >= v6.9.0 | >= v3.10.8 |
+| <= v1.2.0 | ❌{🧓} | >= v6.9.0 |
 
 ## Report Vulnerability
 
