@@ -65,9 +65,7 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 
 ## 📚 Documentation
 
-### Getting Started
-
-#### Install
+### Target
 
 - NodeJS >= v6.9.0
 
@@ -75,18 +73,10 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 npm install @hugoalh/temperature
 ```
 
-#### Use
-
-##### CommonJS
-
 ```js
-const Temperature = require("@hugoalh/temperature");
-```
-
-##### ModuleJS
-
-```js
-import Temperature from "@hugoalh/temperature";// Default Import
+/* Either */
+const Temperature = require("@hugoalh/temperature");// [CommonJS] Require
+import Temperature from "@hugoalh/temperature";// [ModuleJS] Default Import
 ```
 
 ### API
