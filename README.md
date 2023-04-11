@@ -1,8 +1,7 @@
 # Temperature (NodeJS)
 
-[`Temperature.NodeJS`](https://github.com/hugoalh-studio/temperature-nodejs)
-
 ![License](https://img.shields.io/static/v1?label=License&message=MIT&style=flat-square "License")
+[![GitHub Repository](https://img.shields.io/badge/Repository-181717?logo=github&logoColor=ffffff&style=flat-square "GitHub Repository")](https://github.com/hugoalh-studio/temperature-nodejs)
 [![GitHub Stars](https://img.shields.io/github/stars/hugoalh-studio/temperature-nodejs?label=Stars&logo=github&logoColor=ffffff&style=flat-square "GitHub Stars")](https://github.com/hugoalh-studio/temperature-nodejs/stargazers)
 [![GitHub Contributors](https://img.shields.io/github/contributors/hugoalh-studio/temperature-nodejs?label=Contributors&logo=github&logoColor=ffffff&style=flat-square "GitHub Contributors")](https://github.com/hugoalh-studio/temperature-nodejs/graphs/contributors)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/hugoalh-studio/temperature-nodejs?label=Issues&logo=github&logoColor=ffffff&style=flat-square "GitHub Issues")](https://github.com/hugoalh-studio/temperature-nodejs/issues)
@@ -65,7 +64,7 @@ Units of temperature are from [Wikipedia - Conversion of scales of temperature](
 
 ## 📚 Documentation
 
-### Target
+### Getting Started
 
 - NodeJS >= v6.9.0
 
