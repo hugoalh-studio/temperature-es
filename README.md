@@ -58,7 +58,10 @@ npm install @hugoalh/temperature
 ```
 
 ```js
-import Temperature from "@hugoalh/temperature";// Default Import
+/* Either */
+import { ... } from "@hugoalh/temperature";// Named Import
+import * as temperature from "@hugoalh/temperature";// Namespace Import
+import Temperature from "@hugoalh/temperature";// Default Import (Class `Temperature`)
 ```
 
 ### API
