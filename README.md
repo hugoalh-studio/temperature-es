@@ -20,88 +20,91 @@ A NodeJS module to convert temperature units.
 
 Units of temperature are from [Wikipedia - Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature).
 
-| **Unit** | **Symbol (\*: Exclusive)** | **Camel Case Name** |
-|:-:|:-:|:-:|
-| Kelvin ***\[SI\]*** | `K` | `Kelvin` / `kelvin` |
-| Celsius | `C` | `Celsius` / `celsius` |
-| Delisle | `D` / `De`**\*** | `Delisle` / `delisle` |
-| Fahrenheit | `F` | `Fahrenheit` / `fahrenheit` |
-| Rankine | `R` / `Ra` | `Rankine` / `rankine` |
-| Réaumur | `Re` / `r` | `Reaumur` / `reaumur` |
-| Rømer | `Ro` | `Roemer` / `roemer` / `Romer` / `romer` |
-| Sir Isaac Newton's degree of temperature (Newton) | `N` | `Newton` / `newton` |
-
-<details>
-<summary><b>Conversion Formula</b></summary>
-
-| **Unit** | **To SI Unit** | **From SI Unit** |
-|:-:|:--|:--|
-| Kelvin ***\[SI\]*** |  |  |
-| Celsius | $T_{K} = T_{C} + 273.15$ | $T_{C} = T_{K} - 273.15$ |
-| Delisle | $T_{K} = 373.15 - T_{D} \div 1.5$ | $T_{D} = \left( 373.15 - T_{K} \right) \times 1.5$ |
-| Fahrenheit | $T_{K} = \left( T_{F} + 459.67 \right) \div 1.8$ | $T_{F} = T_{K} \times 1.8 - 459.67$ |
-| Rankine | $T_{K} = T_{R} \div 1.8$ | $T_{R} = T_{K} \times 1.8$ |
-| Réaumur | $T_{K} = T_{Re} \times 1.25 + 273.15$ | $T_{Re} = \left( T_{K} - 273.15 \right) \times 0.8$ |
-| Rømer | $T_{K} = \left( T_{Ro} - 7.5 \right) \div 0.525 + 273.15$ | $T_{Ro} = \left( T_{K} - 273.15 \right) \times 0.525 + 7.5$ |
-| Sir Isaac Newton's degree of temperature (Newton) | $T_{K} = T_{N} \div 0.33 + 273.15$ | $T_{N} = \left( T_{K} - 273.15 \right) \times 0.33$ |
-
-</details>
+|  | **Name ASCII** | **Name Standard** | **Symbol ASCII** | **Symbol Standard** | **... (\*: Exclusive)** |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|  ***\[SI\]*** **Kelvin**  | `Kelvin` | `Kelvin` | `K` | `K` |  |
+| **Celsius** | `Celsius` | `Celsius` | `C` | `°C` |  |
+| **Delisle** | `Delisle` | `Delisle` | `De` | `°De` | `D` |
+| **Fahrenheit** | `Fahrenheit` | `Fahrenheit` | `F` | `°F` |  |
+| **Rankine** | `Rankine` | `Rankine` | `R` | `°R` | `Ra` |
+| **Réaumur** | `Reaumur` | `Réaumur` | `Re` | `°Ré` | `r` |
+| **Rømer** | `Roemer` | `Rømer` | `Ro` | `°Rø` | `Romer` |
+| **Sir Isaac Newton's degree of temperature (Newton)** | `Newton` | `Newton` | `N` | `°N` |  |
 
 ### 📋 Notice
 
-- Degree symbol (`°`) is not used in here.
-- In order to fulfill the JavaScript namespace naming requirement, some characters are replaced (e.g.: `é` to `e`, `ø` to `o`).
-- This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. Floating point numbers round-off errors can occur during calculations:
-  ```js
-  0.1 + 0.2;
-  //=> 0.30000000000000004
-  ```
-  In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
-  ```js
-  (0.1 + 0.2).toPrecision(14);
-  //=> 0.3
-  ```
+This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. Floating point numbers round-off errors can occur during calculations:
+
+```js
+0.1 + 0.2;
+//=> 0.30000000000000004
+```
+
+In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
+
+```js
+(0.1 + 0.2).toPrecision(14);
+//=> 0.3
+```
 
 ## 📚 Documentation
 
 ### Getting Started
 
-- NodeJS >= v6.9.0
+- NodeJS ^ v12.20.0 \|\| ^ v14.15.0 \|\| >= v16.13.0
 
 ```sh
 npm install @hugoalh/temperature
 ```
 
 ```js
-/* Either */
-const Temperature = require("@hugoalh/temperature");// [CommonJS] Require
-import Temperature from "@hugoalh/temperature";// [ModuleJS] Default Import
+import Temperature from "@hugoalh/temperature";// Default Import
 ```
 
 ### API
 
 #### Class
 
-```ts
-new Temperature(value: number, unit: string = "K"): Temperature;
-  .C: number;
-  .D: number;
-  .F: number;
-  .K: number;
-  .N: number;
-  .R: number;
-  .Re: number;
-  .Ro: number;
+- ```ts
+  new Temperature(value: number, unit: TemperatureUnits | string = "K"): Temperature;
+    .toJSON(keyType: TemperatureToJSONKeyType = "symbolASCII"): { [x: string]: number; };// Get all of the units value.
+    .toStringASCII(unit: TemperatureUnits | string = "K"): string;// Get unit's value with ASCII symbol.
+    .toStringStandard(unit: TemperatureUnits | string = "K"): string;// Get unit's value with Standard symbol.
+    .toValue(unit: TemperatureUnits | string = "K"): number;// Get unit's value.
+  
+  Temperature.difference(a: Temperature, b: Temperature): TemperatureDifference;// Calculate temperature difference by units.
+  Temperature.unit(unit: TemperatureUnits | string): TemperatureUnitMeta;// Get a temperature unit meta.
+  Temperature.units(): TemperatureUnitMeta[];// Get all of the temperature units meta.
+  Temperature.unitSI(): TemperatureUnitMeta;// Get temperature SI unit meta.
+  ```
 
-Temperature.difference(a: Temperature, b: Temperature): TemperatureDifference;
-```
+#### Interface / Type
+
+- ```ts
+  type TemperatureToJSONKeyType = "nameASCII" | "nameStandard" | "symbolASCII" | "symbolStandard";
+  ```
+- ```ts
+  type TemperatureUnitMeta = {
+    isSIUnit: boolean;
+    nameASCII: string;
+    nameStandard: string;
+    symbolASCII: string;
+    symbolStandard: string;
+  };
+  ```
 
 ### Example
 
 ```js
-new Temperature(25, "C").K;
+new Temperature(25, "C").toValue("K");
 //=> 298.15
 
-new Temperature(298.15).C;
+new Temperature(25, "C").toStringStandard("K");
+//=> "298.15 K"
+
+new Temperature(298.15).toValue("C");
 //=> 25
+
+new Temperature(298.15).toStringStandard("C");
+//=> "25 °C"
 ```
