@@ -18,7 +18,7 @@
 
 A NodeJS module to convert temperature units.
 
-Units of temperature are from [Wikipedia - Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature).
+Units of temperature are from "[Wikipedia - Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature)".
 
 |  | **Name ASCII** | **Name Standard** | **Symbol ASCII** | **Symbol Standard** | **... (\*: Exclusive)** |
 |:-:|:-:|:-:|:-:|:-:|:-:|
