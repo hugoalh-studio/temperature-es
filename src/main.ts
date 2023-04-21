@@ -6,8 +6,8 @@ type TemperatureUnitMeta = {
 	symbolStandard: string;
 };
 type TemperatureUnitMetaInternal = TemperatureUnitMeta & {
-	convertFromSI?: (valueSI: number) => number;// Not exist when `isSIUnit` is `true`.
-	convertToSI?: (valueCurrent: number) => number;// Not exist when `isSIUnit` is `true`.
+	convertFromSI: (valueSI: number) => number;
+	convertToSI: (valueCurrent: number) => number;
 	nameRegExp: RegExp;
 	symbolRegExp: RegExp;
 };
@@ -27,7 +27,13 @@ const temperatureUnitsMap = [
 		symbolASCII: "K",
 		symbolStandard: "K",
 		symbolRegExp: /^K$/u,
-		isSIUnit: true
+		isSIUnit: true,
+		convertFromSI: (valueSI: number): number => {
+			return valueSI;
+		},
+		convertToSI: (valueCurrent: number): number => {
+			return valueCurrent;
+		}
 	},
 	{
 		nameASCII: "Celsius",
@@ -258,9 +264,6 @@ class Temperature {
 			this.#table.set(unitSI.nameASCII, unitResolve.convertToSI(value));
 		}
 		for (let unitMeta of temperatureUnitsMap) {
-			if (unitMeta.isSIUnit === true) {// [TypeScript] ` === true` must exist here, otherwise cause issue below.
-				continue;
-			}
 			if (!this.#table.has(unitMeta.nameASCII)) {
 				this.#table.set(unitMeta.nameASCII, unitMeta.convertFromSI(this.#table.get(unitSI.nameASCII)));
 			}

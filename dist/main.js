@@ -20,7 +20,13 @@ const temperatureUnitsMap = [
         symbolASCII: "K",
         symbolStandard: "K",
         symbolRegExp: /^K$/u,
-        isSIUnit: true
+        isSIUnit: true,
+        convertFromSI: (valueSI) => {
+            return valueSI;
+        },
+        convertToSI: (valueCurrent) => {
+            return valueCurrent;
+        }
     },
     {
         nameASCII: "Celsius",
@@ -240,9 +246,6 @@ class Temperature {
             __classPrivateFieldGet(this, _Temperature_table, "f").set(unitSI.nameASCII, unitResolve.convertToSI(value));
         }
         for (let unitMeta of temperatureUnitsMap) {
-            if (unitMeta.isSIUnit === true) { // [TypeScript] ` === true` must exist here, otherwise cause issue below.
-                continue;
-            }
             if (!__classPrivateFieldGet(this, _Temperature_table, "f").has(unitMeta.nameASCII)) {
                 __classPrivateFieldGet(this, _Temperature_table, "f").set(unitMeta.nameASCII, unitMeta.convertFromSI(__classPrivateFieldGet(this, _Temperature_table, "f").get(unitSI.nameASCII)));
             }

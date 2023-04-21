@@ -13,6 +13,8 @@ declare const temperatureUnitsMap: readonly [{
     readonly symbolStandard: "K";
     readonly symbolRegExp: RegExp;
     readonly isSIUnit: true;
+    readonly convertFromSI: (valueSI: number) => number;
+    readonly convertToSI: (valueCurrent: number) => number;
 }, {
     readonly nameASCII: "Celsius";
     readonly nameStandard: "Celsius";
