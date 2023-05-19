@@ -101,13 +101,19 @@ import Temperature from "@hugoalh/temperature";// Default Import (Class `Tempera
 ```js
 new Temperature(25, "C").toValue("K");
 //=> 298.15
+```
 
+```js
 new Temperature(25, "C").toStringStandard("K");
 //=> "298.15 K"
+```
 
+```js
 new Temperature(298.15).toValue("C");
 //=> 25
+```
 
+```js
 new Temperature(298.15).toStringStandard("C");
 //=> "25 °C"
 ```
