@@ -69,14 +69,14 @@ import Temperature from "@hugoalh/temperature";// Default Import (Class `Tempera
 #### Class
 
 - ```ts
-  new Temperature(value: number, unit: TemperatureUnits | string = "K"): Temperature;
+  new Temperature(value: number, unit: TemperatureUnits = "K"): Temperature;
     .toJSON(keyType: TemperatureToJSONKeyType = "symbolASCII"): { [x: string]: number; };// Get all of the units value.
-    .toStringASCII(unit: TemperatureUnits | string = "K"): string;// Get unit's value with ASCII symbol.
-    .toStringStandard(unit: TemperatureUnits | string = "K"): string;// Get unit's value with Standard symbol.
-    .toValue(unit: TemperatureUnits | string = "K"): number;// Get unit's value.
+    .toStringASCII(unit: TemperatureUnits = "K"): string;// Get unit's value with ASCII symbol.
+    .toStringStandard(unit: TemperatureUnits = "K"): string;// Get unit's value with Standard symbol.
+    .toValue(unit: TemperatureUnits = "K"): number;// Get unit's value.
   
   Temperature.difference(a: Temperature, b: Temperature): TemperatureDifference;// Calculate temperature difference by units.
-  Temperature.unit(unit: TemperatureUnits | string): TemperatureUnitMeta;// Get a temperature unit meta.
+  Temperature.unit(unit: TemperatureUnits): TemperatureUnitMeta;// Get a temperature unit meta.
   Temperature.units(): TemperatureUnitMeta[];// Get all of the temperature units meta.
   Temperature.unitSI(): TemperatureUnitMeta;// Get temperature SI unit meta.
   ```

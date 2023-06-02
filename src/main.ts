@@ -161,10 +161,10 @@ const toJSONKeyType: TemperatureToJSONKeyType[] = [
 /**
  * @access private
  * @function unitResolver
- * @param {TemperatureUnits | string} unit Unit.
+ * @param {TemperatureUnits} unit Unit.
  * @returns {TemperatureUnitMetaInternal} Unit meta.
  */
-function unitResolver(unit: TemperatureUnits | string): TemperatureUnitMetaInternal {
+function unitResolver(unit: TemperatureUnits): TemperatureUnitMetaInternal {
 	if (typeof unit !== "string") {
 		throw new TypeError(`Argument \`unit\` must be type of string!`);
 	}
@@ -202,10 +202,10 @@ class Temperature {
 	 * @static
 	 * @method unit
 	 * @description Get a temperature unit meta.
-	 * @param {TemperatureUnits | string} unit Unit.
+	 * @param {TemperatureUnits} unit Unit.
 	 * @returns {TemperatureUnitMeta} Unit meta.
 	 */
-	static unit(unit: TemperatureUnits | string): TemperatureUnitMeta {
+	static unit(unit: TemperatureUnits): TemperatureUnitMeta {
 		let unitResolve: TemperatureUnitMetaInternal = unitResolver(unit);
 		return {
 			nameASCII: unitResolve.nameASCII,
@@ -252,9 +252,9 @@ class Temperature {
 	/**
 	 * @constructor
 	 * @param {number} value Value.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 */
-	constructor(value: number, unit: TemperatureUnits | string = "K") {
+	constructor(value: number, unit: TemperatureUnits = "K") {
 		if (!(typeof value === "number" && !Number.isNaN(value))) {
 			throw new TypeError(`Argument \`value\` must be type of number!`);
 		}
@@ -288,30 +288,30 @@ class Temperature {
 	/**
 	 * @method toStringASCII
 	 * @description Get unit's value with ASCII symbol.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
-	toStringASCII(unit: TemperatureUnits | string = "K"): string {
+	toStringASCII(unit: TemperatureUnits = "K"): string {
 		let unitResolve: TemperatureUnitMetaInternal = unitResolver(unit);
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolASCII}`;
 	}
 	/**
 	 * @method toStringStandard
 	 * @description Get unit's value with Standard symbol.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
-	toStringStandard(unit: TemperatureUnits | string = "K"): string {
+	toStringStandard(unit: TemperatureUnits = "K"): string {
 		let unitResolve: TemperatureUnitMetaInternal = unitResolver(unit);
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolStandard}`;
 	}
 	/**
 	 * @method toValue
 	 * @description Get unit's value.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {number}
 	 */
-	toValue(unit: TemperatureUnits | string = "K"): number {
+	toValue(unit: TemperatureUnits = "K"): number {
 		return this.#table.get(unitResolver(unit).nameASCII);
 	}
 }
@@ -356,30 +356,30 @@ class TemperatureDifference {
 	/**
 	 * @method toStringASCII
 	 * @description Get unit's value with ASCII symbol.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
-	toStringASCII(unit: TemperatureUnits | string = "K"): string {
+	toStringASCII(unit: TemperatureUnits = "K"): string {
 		let unitResolve: TemperatureUnitMetaInternal = unitResolver(unit);
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolASCII}`;
 	}
 	/**
 	 * @method toStringStandard
 	 * @description Get unit's value with Standard symbol.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
-	toStringStandard(unit: TemperatureUnits | string = "K"): string {
+	toStringStandard(unit: TemperatureUnits = "K"): string {
 		let unitResolve: TemperatureUnitMetaInternal = unitResolver(unit);
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolStandard}`;
 	}
 	/**
 	 * @method toValue
 	 * @description Get unit's value.
-	 * @param {TemperatureUnits | string} [unit="K"] Unit.
+	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {number}
 	 */
-	toValue(unit: TemperatureUnits | string = "K"): number {
+	toValue(unit: TemperatureUnits = "K"): number {
 		return this.#table.get(unitResolver(unit).nameASCII);
 	}
 }

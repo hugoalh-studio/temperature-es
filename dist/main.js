@@ -146,7 +146,7 @@ const toJSONKeyType = [
 /**
  * @access private
  * @function unitResolver
- * @param {TemperatureUnits | string} unit Unit.
+ * @param {TemperatureUnits} unit Unit.
  * @returns {TemperatureUnitMetaInternal} Unit meta.
  */
 function unitResolver(unit) {
@@ -185,7 +185,7 @@ class Temperature {
      * @static
      * @method unit
      * @description Get a temperature unit meta.
-     * @param {TemperatureUnits | string} unit Unit.
+     * @param {TemperatureUnits} unit Unit.
      * @returns {TemperatureUnitMeta} Unit meta.
      */
     static unit(unit) {
@@ -233,7 +233,7 @@ class Temperature {
     /**
      * @constructor
      * @param {number} value Value.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      */
     constructor(value, unit = "K") {
         _Temperature_table.set(this, new Map());
@@ -270,7 +270,7 @@ class Temperature {
     /**
      * @method toStringASCII
      * @description Get unit's value with ASCII symbol.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringASCII(unit = "K") {
@@ -280,7 +280,7 @@ class Temperature {
     /**
      * @method toStringStandard
      * @description Get unit's value with Standard symbol.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringStandard(unit = "K") {
@@ -290,7 +290,7 @@ class Temperature {
     /**
      * @method toValue
      * @description Get unit's value.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {number}
      */
     toValue(unit = "K") {
@@ -338,7 +338,7 @@ class TemperatureDifference {
     /**
      * @method toStringASCII
      * @description Get unit's value with ASCII symbol.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringASCII(unit = "K") {
@@ -348,7 +348,7 @@ class TemperatureDifference {
     /**
      * @method toStringStandard
      * @description Get unit's value with Standard symbol.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringStandard(unit = "K") {
@@ -358,7 +358,7 @@ class TemperatureDifference {
     /**
      * @method toValue
      * @description Get unit's value.
-     * @param {TemperatureUnits | string} [unit="K"] Unit.
+     * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {number}
      */
     toValue(unit = "K") {
