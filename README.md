@@ -87,7 +87,7 @@ import Temperature from "@hugoalh/temperature";// Default Import (Class `Tempera
   type TemperatureToJSONKeyType = "nameASCII" | "nameStandard" | "symbolASCII" | "symbolStandard";
   ```
 - ```ts
-  type TemperatureUnitMeta = {
+  interface TemperatureUnitMeta = {
     isSIUnit: boolean;
     nameASCII: string;
     nameStandard: string;

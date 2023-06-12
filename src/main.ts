@@ -1,16 +1,16 @@
-type TemperatureUnitMeta = {
+interface TemperatureUnitMeta {
 	isSIUnit: boolean;
 	nameASCII: string;
 	nameStandard: string;
 	symbolASCII: string;
 	symbolStandard: string;
-};
-type TemperatureUnitMetaInternal = TemperatureUnitMeta & {
+}
+interface TemperatureUnitMetaInternal extends TemperatureUnitMeta {
 	convertFromSI: (valueSI: number) => number;
 	convertToSI: (valueCurrent: number) => number;
 	nameRegExp: RegExp;
 	symbolRegExp: RegExp;
-};
+}
 /*
 [FOR DEVELOPERS]
 

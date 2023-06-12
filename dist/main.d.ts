@@ -1,10 +1,10 @@
-type TemperatureUnitMeta = {
+interface TemperatureUnitMeta {
     isSIUnit: boolean;
     nameASCII: string;
     nameStandard: string;
     symbolASCII: string;
     symbolStandard: string;
-};
+}
 declare const temperatureUnitsMap: readonly [{
     readonly nameASCII: "Kelvin";
     readonly nameStandard: "Kelvin";
