@@ -1,4 +1,4 @@
-interface TemperatureUnitMeta {
+export interface TemperatureUnitMeta {
 	isSIUnit: boolean;
 	nameASCII: string;
 	nameStandard: string;
@@ -141,14 +141,14 @@ const temperatureUnitsMap = [
 		}
 	}
 ] as const;
-type TemperatureUnitsNameASCII = (typeof temperatureUnitsMap)[number]["nameASCII"];
-type TemperatureUnitsNameStandard = (typeof temperatureUnitsMap)[number]["nameStandard"];
-type TemperatureUnitsSymbolASCII = (typeof temperatureUnitsMap)[number]["symbolASCII"];
-type TemperatureUnitsSymbolStandard = (typeof temperatureUnitsMap)[number]["symbolStandard"];
-type TemperatureUnitsName = TemperatureUnitsNameASCII | TemperatureUnitsNameStandard;
-type TemperatureUnitsSymbol = TemperatureUnitsSymbolASCII | TemperatureUnitsSymbolStandard;
-type TemperatureUnits = TemperatureUnitsName | TemperatureUnitsSymbol;
-type TemperatureToJSONKeyType = keyof Omit<TemperatureUnitMeta, "isSIUnit">;
+export type TemperatureUnitsNameASCII = (typeof temperatureUnitsMap)[number]["nameASCII"];
+export type TemperatureUnitsNameStandard = (typeof temperatureUnitsMap)[number]["nameStandard"];
+export type TemperatureUnitsSymbolASCII = (typeof temperatureUnitsMap)[number]["symbolASCII"];
+export type TemperatureUnitsSymbolStandard = (typeof temperatureUnitsMap)[number]["symbolStandard"];
+export type TemperatureUnitsName = TemperatureUnitsNameASCII | TemperatureUnitsNameStandard;
+export type TemperatureUnitsSymbol = TemperatureUnitsSymbolASCII | TemperatureUnitsSymbolStandard;
+export type TemperatureUnits = TemperatureUnitsName | TemperatureUnitsSymbol;
+export type TemperatureToJSONKeyType = keyof Omit<TemperatureUnitMeta, "isSIUnit">;
 const unitSI: TemperatureUnitMetaInternal = temperatureUnitsMap.filter((unitMeta): boolean => {
 	return unitMeta.isSIUnit;
 })[0];
@@ -160,7 +160,6 @@ const toJSONKeyType: TemperatureToJSONKeyType[] = [
 ];
 /**
  * @access private
- * @function unitResolver
  * @param {TemperatureUnits} unit Unit.
  * @returns {TemperatureUnitMetaInternal} Unit meta.
  */
@@ -183,14 +182,11 @@ function unitResolver(unit: TemperatureUnits): TemperatureUnitMetaInternal {
 	throw new SyntaxError(`\`${unit}\` is not a known temperature unit!`);
 }
 /**
- * @class Temperature
- * @description Convert temperature units.
+ * Convert temperature units.
  */
-class Temperature {
+export class Temperature {
 	/**
-	 * @static
-	 * @method difference
-	 * @description Calculate temperature difference by units.
+	 * Calculate temperature difference by units.
 	 * @param {Temperature} a
 	 * @param {Temperature} b
 	 * @returns {TemperatureDifference}
@@ -199,9 +195,7 @@ class Temperature {
 		return new TemperatureDifference(a, b);
 	}
 	/**
-	 * @static
-	 * @method unit
-	 * @description Get a temperature unit meta.
+	 * Get a temperature unit meta.
 	 * @param {TemperatureUnits} unit Unit.
 	 * @returns {TemperatureUnitMeta} Unit meta.
 	 */
@@ -216,9 +210,7 @@ class Temperature {
 		};
 	}
 	/**
-	 * @static
-	 * @method units
-	 * @description Get all of the temperature units meta.
+	 * Get all of the temperature units meta.
 	 * @returns {TemperatureUnitMeta[]} Units meta.
 	 */
 	static units(): TemperatureUnitMeta[] {
@@ -233,9 +225,7 @@ class Temperature {
 		});
 	}
 	/**
-	 * @static
-	 * @method unitSI
-	 * @description Get temperature SI unit meta.
+	 * Get temperature SI unit meta.
 	 * @returns {TemperatureUnitMeta} SI unit meta.
 	 */
 	static unitSI(): TemperatureUnitMeta {
@@ -250,7 +240,6 @@ class Temperature {
 	/** @alias difference */static diff = this.difference;
 	#table: Map<string, number> = new Map<string, number>();
 	/**
-	 * @constructor
 	 * @param {number} value Value.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 */
@@ -270,8 +259,7 @@ class Temperature {
 		}
 	}
 	/**
-	 * @method toJSON
-	 * @description Get all of the units value.
+	 * Get all of the units value.
 	 * @param {TemperatureToJSONKeyType} [keyType="symbolASCII"] Key type.
 	 * @returns {{ [x: string]: number; }} Units value.
 	 */
@@ -286,8 +274,7 @@ class Temperature {
 		return result;
 	}
 	/**
-	 * @method toStringASCII
-	 * @description Get unit's value with ASCII symbol.
+	 * Get unit's value with ASCII symbol.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
@@ -296,8 +283,7 @@ class Temperature {
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolASCII}`;
 	}
 	/**
-	 * @method toStringStandard
-	 * @description Get unit's value with Standard symbol.
+	 * Get unit's value with Standard symbol.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
@@ -306,8 +292,7 @@ class Temperature {
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolStandard}`;
 	}
 	/**
-	 * @method toValue
-	 * @description Get unit's value.
+	 * Get unit's value.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {number}
 	 */
@@ -316,13 +301,12 @@ class Temperature {
 	}
 }
 /**
- * @class TemperatureDifference
- * @description Calculate temperature difference by units.
+ * Calculate temperature difference by units.
+ * @access private
  */
 class TemperatureDifference {
 	#table: Map<string, number> = new Map<string, number>();
 	/**
-	 * @constructor
 	 * @param {Temperature} a
 	 * @param {Temperature} b
 	 */
@@ -338,8 +322,7 @@ class TemperatureDifference {
 		}
 	}
 	/**
-	 * @method toJSON
-	 * @description Get all of the units value.
+	 * Get all of the units value.
 	 * @param {TemperatureToJSONKeyType} [keyType="symbolASCII"] Key type.
 	 * @returns {{ [x: string]: number; }} Units value.
 	 */
@@ -354,8 +337,7 @@ class TemperatureDifference {
 		return result;
 	}
 	/**
-	 * @method toStringASCII
-	 * @description Get unit's value with ASCII symbol.
+	 * Get unit's value with ASCII symbol.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
@@ -364,8 +346,7 @@ class TemperatureDifference {
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolASCII}`;
 	}
 	/**
-	 * @method toStringStandard
-	 * @description Get unit's value with Standard symbol.
+	 * Get unit's value with Standard symbol.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {string}
 	 */
@@ -374,8 +355,7 @@ class TemperatureDifference {
 		return `${this.#table.get(unitResolve.nameASCII)} ${unitResolve.symbolStandard}`;
 	}
 	/**
-	 * @method toValue
-	 * @description Get unit's value.
+	 * Get unit's value.
 	 * @param {TemperatureUnits} [unit="K"] Unit.
 	 * @returns {number}
 	 */
@@ -384,15 +364,3 @@ class TemperatureDifference {
 	}
 }
 export default Temperature;
-export {
-	Temperature,
-	type TemperatureToJSONKeyType,
-	type TemperatureUnitMeta,
-	type TemperatureUnits,
-	type TemperatureUnitsName,
-	type TemperatureUnitsNameASCII,
-	type TemperatureUnitsNameStandard,
-	type TemperatureUnitsSymbol,
-	type TemperatureUnitsSymbolASCII,
-	type TemperatureUnitsSymbolStandard
-};

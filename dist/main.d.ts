@@ -1,4 +1,4 @@
-interface TemperatureUnitMeta {
+export interface TemperatureUnitMeta {
     isSIUnit: boolean;
     nameASCII: string;
     nameStandard: string;
@@ -86,61 +86,50 @@ declare const temperatureUnitsMap: readonly [{
     readonly convertFromSI: (valueSI: number) => number;
     readonly convertToSI: (valueCurrent: number) => number;
 }];
-type TemperatureUnitsNameASCII = (typeof temperatureUnitsMap)[number]["nameASCII"];
-type TemperatureUnitsNameStandard = (typeof temperatureUnitsMap)[number]["nameStandard"];
-type TemperatureUnitsSymbolASCII = (typeof temperatureUnitsMap)[number]["symbolASCII"];
-type TemperatureUnitsSymbolStandard = (typeof temperatureUnitsMap)[number]["symbolStandard"];
-type TemperatureUnitsName = TemperatureUnitsNameASCII | TemperatureUnitsNameStandard;
-type TemperatureUnitsSymbol = TemperatureUnitsSymbolASCII | TemperatureUnitsSymbolStandard;
-type TemperatureUnits = TemperatureUnitsName | TemperatureUnitsSymbol;
-type TemperatureToJSONKeyType = keyof Omit<TemperatureUnitMeta, "isSIUnit">;
+export type TemperatureUnitsNameASCII = (typeof temperatureUnitsMap)[number]["nameASCII"];
+export type TemperatureUnitsNameStandard = (typeof temperatureUnitsMap)[number]["nameStandard"];
+export type TemperatureUnitsSymbolASCII = (typeof temperatureUnitsMap)[number]["symbolASCII"];
+export type TemperatureUnitsSymbolStandard = (typeof temperatureUnitsMap)[number]["symbolStandard"];
+export type TemperatureUnitsName = TemperatureUnitsNameASCII | TemperatureUnitsNameStandard;
+export type TemperatureUnitsSymbol = TemperatureUnitsSymbolASCII | TemperatureUnitsSymbolStandard;
+export type TemperatureUnits = TemperatureUnitsName | TemperatureUnitsSymbol;
+export type TemperatureToJSONKeyType = keyof Omit<TemperatureUnitMeta, "isSIUnit">;
 /**
- * @class Temperature
- * @description Convert temperature units.
+ * Convert temperature units.
  */
-declare class Temperature {
+export declare class Temperature {
     #private;
     /**
-     * @static
-     * @method difference
-     * @description Calculate temperature difference by units.
+     * Calculate temperature difference by units.
      * @param {Temperature} a
      * @param {Temperature} b
      * @returns {TemperatureDifference}
      */
     static difference(a: Temperature, b: Temperature): TemperatureDifference;
     /**
-     * @static
-     * @method unit
-     * @description Get a temperature unit meta.
+     * Get a temperature unit meta.
      * @param {TemperatureUnits} unit Unit.
      * @returns {TemperatureUnitMeta} Unit meta.
      */
     static unit(unit: TemperatureUnits): TemperatureUnitMeta;
     /**
-     * @static
-     * @method units
-     * @description Get all of the temperature units meta.
+     * Get all of the temperature units meta.
      * @returns {TemperatureUnitMeta[]} Units meta.
      */
     static units(): TemperatureUnitMeta[];
     /**
-     * @static
-     * @method unitSI
-     * @description Get temperature SI unit meta.
+     * Get temperature SI unit meta.
      * @returns {TemperatureUnitMeta} SI unit meta.
      */
     static unitSI(): TemperatureUnitMeta;
     /** @alias difference */ static diff: typeof Temperature.difference;
     /**
-     * @constructor
      * @param {number} value Value.
      * @param {TemperatureUnits} [unit="K"] Unit.
      */
     constructor(value: number, unit?: TemperatureUnits);
     /**
-     * @method toJSON
-     * @description Get all of the units value.
+     * Get all of the units value.
      * @param {TemperatureToJSONKeyType} [keyType="symbolASCII"] Key type.
      * @returns {{ [x: string]: number; }} Units value.
      */
@@ -148,42 +137,37 @@ declare class Temperature {
         [x: string]: number;
     };
     /**
-     * @method toStringASCII
-     * @description Get unit's value with ASCII symbol.
+     * Get unit's value with ASCII symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringASCII(unit?: TemperatureUnits): string;
     /**
-     * @method toStringStandard
-     * @description Get unit's value with Standard symbol.
+     * Get unit's value with Standard symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringStandard(unit?: TemperatureUnits): string;
     /**
-     * @method toValue
-     * @description Get unit's value.
+     * Get unit's value.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {number}
      */
     toValue(unit?: TemperatureUnits): number;
 }
 /**
- * @class TemperatureDifference
- * @description Calculate temperature difference by units.
+ * Calculate temperature difference by units.
+ * @access private
  */
 declare class TemperatureDifference {
     #private;
     /**
-     * @constructor
      * @param {Temperature} a
      * @param {Temperature} b
      */
     constructor(a: Temperature, b: Temperature);
     /**
-     * @method toJSON
-     * @description Get all of the units value.
+     * Get all of the units value.
      * @param {TemperatureToJSONKeyType} [keyType="symbolASCII"] Key type.
      * @returns {{ [x: string]: number; }} Units value.
      */
@@ -191,27 +175,23 @@ declare class TemperatureDifference {
         [x: string]: number;
     };
     /**
-     * @method toStringASCII
-     * @description Get unit's value with ASCII symbol.
+     * Get unit's value with ASCII symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringASCII(unit?: TemperatureUnits): string;
     /**
-     * @method toStringStandard
-     * @description Get unit's value with Standard symbol.
+     * Get unit's value with Standard symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
     toStringStandard(unit?: TemperatureUnits): string;
     /**
-     * @method toValue
-     * @description Get unit's value.
+     * Get unit's value.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {number}
      */
     toValue(unit?: TemperatureUnits): number;
 }
 export default Temperature;
-export { Temperature, type TemperatureToJSONKeyType, type TemperatureUnitMeta, type TemperatureUnits, type TemperatureUnitsName, type TemperatureUnitsNameASCII, type TemperatureUnitsNameStandard, type TemperatureUnitsSymbol, type TemperatureUnitsSymbolASCII, type TemperatureUnitsSymbolStandard };
 //# sourceMappingURL=main.d.ts.map

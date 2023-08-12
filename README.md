@@ -22,22 +22,6 @@ Units of temperature are from "[Wikipedia - Conversion of scales of temperature]
 | **Rømer** | `Roemer` | `Rømer` | `Ro` | `°Rø` | `Romer` |
 | **Sir Isaac Newton's degree of temperature (Newton)** | `Newton` | `Newton` | `N` | `°N` |  |
 
-## 📋 Notice
-
-This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. Floating point numbers round-off errors can occur during calculations:
-
-```js
-0.1 + 0.2;
-//=> 0.30000000000000004
-```
-
-In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
-
-```js
-(0.1 + 0.2).toPrecision(14);
-//=> 0.3
-```
-
 ## 📓 Documentation
 
 ### Getting Started
@@ -57,25 +41,18 @@ import Temperature from "@hugoalh/temperature";// Default Import (Class `Tempera
 
 ### API
 
-#### Class
-
 - ```ts
-  new Temperature(value: number, unit: TemperatureUnits = "K"): Temperature;
-    .toJSON(keyType: TemperatureToJSONKeyType = "symbolASCII"): { [x: string]: number; };// Get all of the units value.
-    .toStringASCII(unit: TemperatureUnits = "K"): string;// Get unit's value with ASCII symbol.
-    .toStringStandard(unit: TemperatureUnits = "K"): string;// Get unit's value with Standard symbol.
-    .toValue(unit: TemperatureUnits = "K"): number;// Get unit's value.
-  
-  Temperature.difference(a: Temperature, b: Temperature): TemperatureDifference;// Calculate temperature difference by units.
-  Temperature.unit(unit: TemperatureUnits): TemperatureUnitMeta;// Get a temperature unit meta.
-  Temperature.units(): TemperatureUnitMeta[];// Get all of the temperature units meta.
-  Temperature.unitSI(): TemperatureUnitMeta;// Get temperature SI unit meta.
-  ```
-
-#### Interface / Type
-
-- ```ts
-  type TemperatureToJSONKeyType = "nameASCII" | "nameStandard" | "symbolASCII" | "symbolStandard";
+  class Temperature {
+    constructor(value: number, unit: TemperatureUnits = "K"): Temperature;
+    toJSON(keyType: TemperatureToJSONKeyType = "symbolASCII"): { [x: string]: number; };
+    toStringASCII(unit: TemperatureUnits = "K"): string;
+    toStringStandard(unit: TemperatureUnits = "K"): string;
+    toValue(unit: TemperatureUnits = "K"): number;
+    static difference(a: Temperature, b: Temperature): TemperatureDifference;
+    static unit(unit: TemperatureUnits): TemperatureUnitMeta;
+    static units(): TemperatureUnitMeta[];
+    static unitSI(): TemperatureUnitMeta;
+  }
   ```
 - ```ts
   interface TemperatureUnitMeta {
@@ -105,3 +82,19 @@ import Temperature from "@hugoalh/temperature";// Default Import (Class `Tempera
   new Temperature(298.15).toStringStandard("C");
   //=> "25 °C"
   ```
+
+### ℹ️ Notice
+
+This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. Floating point numbers round-off errors can occur during calculations:
+
+```js
+0.1 + 0.2;
+//=> 0.30000000000000004
+```
+
+In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
+
+```js
+(0.1 + 0.2).toPrecision(14);
+//=> 0.3
+```

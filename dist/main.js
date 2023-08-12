@@ -145,7 +145,6 @@ const toJSONKeyType = [
 ];
 /**
  * @access private
- * @function unitResolver
  * @param {TemperatureUnits} unit Unit.
  * @returns {TemperatureUnitMetaInternal} Unit meta.
  */
@@ -166,14 +165,11 @@ function unitResolver(unit) {
     throw new SyntaxError(`\`${unit}\` is not a known temperature unit!`);
 }
 /**
- * @class Temperature
- * @description Convert temperature units.
+ * Convert temperature units.
  */
-class Temperature {
+export class Temperature {
     /**
-     * @static
-     * @method difference
-     * @description Calculate temperature difference by units.
+     * Calculate temperature difference by units.
      * @param {Temperature} a
      * @param {Temperature} b
      * @returns {TemperatureDifference}
@@ -182,9 +178,7 @@ class Temperature {
         return new TemperatureDifference(a, b);
     }
     /**
-     * @static
-     * @method unit
-     * @description Get a temperature unit meta.
+     * Get a temperature unit meta.
      * @param {TemperatureUnits} unit Unit.
      * @returns {TemperatureUnitMeta} Unit meta.
      */
@@ -199,9 +193,7 @@ class Temperature {
         };
     }
     /**
-     * @static
-     * @method units
-     * @description Get all of the temperature units meta.
+     * Get all of the temperature units meta.
      * @returns {TemperatureUnitMeta[]} Units meta.
      */
     static units() {
@@ -216,9 +208,7 @@ class Temperature {
         });
     }
     /**
-     * @static
-     * @method unitSI
-     * @description Get temperature SI unit meta.
+     * Get temperature SI unit meta.
      * @returns {TemperatureUnitMeta} SI unit meta.
      */
     static unitSI() {
@@ -231,7 +221,6 @@ class Temperature {
         };
     }
     /**
-     * @constructor
      * @param {number} value Value.
      * @param {TemperatureUnits} [unit="K"] Unit.
      */
@@ -252,8 +241,7 @@ class Temperature {
         }
     }
     /**
-     * @method toJSON
-     * @description Get all of the units value.
+     * Get all of the units value.
      * @param {TemperatureToJSONKeyType} [keyType="symbolASCII"] Key type.
      * @returns {{ [x: string]: number; }} Units value.
      */
@@ -268,8 +256,7 @@ class Temperature {
         return result;
     }
     /**
-     * @method toStringASCII
-     * @description Get unit's value with ASCII symbol.
+     * Get unit's value with ASCII symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
@@ -278,8 +265,7 @@ class Temperature {
         return `${__classPrivateFieldGet(this, _Temperature_table, "f").get(unitResolve.nameASCII)} ${unitResolve.symbolASCII}`;
     }
     /**
-     * @method toStringStandard
-     * @description Get unit's value with Standard symbol.
+     * Get unit's value with Standard symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
@@ -288,8 +274,7 @@ class Temperature {
         return `${__classPrivateFieldGet(this, _Temperature_table, "f").get(unitResolve.nameASCII)} ${unitResolve.symbolStandard}`;
     }
     /**
-     * @method toValue
-     * @description Get unit's value.
+     * Get unit's value.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {number}
      */
@@ -300,12 +285,11 @@ class Temperature {
 _a = Temperature, _Temperature_table = new WeakMap();
 /** @alias difference */ Temperature.diff = _a.difference;
 /**
- * @class TemperatureDifference
- * @description Calculate temperature difference by units.
+ * Calculate temperature difference by units.
+ * @access private
  */
 class TemperatureDifference {
     /**
-     * @constructor
      * @param {Temperature} a
      * @param {Temperature} b
      */
@@ -320,8 +304,7 @@ class TemperatureDifference {
         }
     }
     /**
-     * @method toJSON
-     * @description Get all of the units value.
+     * Get all of the units value.
      * @param {TemperatureToJSONKeyType} [keyType="symbolASCII"] Key type.
      * @returns {{ [x: string]: number; }} Units value.
      */
@@ -336,8 +319,7 @@ class TemperatureDifference {
         return result;
     }
     /**
-     * @method toStringASCII
-     * @description Get unit's value with ASCII symbol.
+     * Get unit's value with ASCII symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
@@ -346,8 +328,7 @@ class TemperatureDifference {
         return `${__classPrivateFieldGet(this, _TemperatureDifference_table, "f").get(unitResolve.nameASCII)} ${unitResolve.symbolASCII}`;
     }
     /**
-     * @method toStringStandard
-     * @description Get unit's value with Standard symbol.
+     * Get unit's value with Standard symbol.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {string}
      */
@@ -356,8 +337,7 @@ class TemperatureDifference {
         return `${__classPrivateFieldGet(this, _TemperatureDifference_table, "f").get(unitResolve.nameASCII)} ${unitResolve.symbolStandard}`;
     }
     /**
-     * @method toValue
-     * @description Get unit's value.
+     * Get unit's value.
      * @param {TemperatureUnits} [unit="K"] Unit.
      * @returns {number}
      */
@@ -367,4 +347,3 @@ class TemperatureDifference {
 }
 _TemperatureDifference_table = new WeakMap();
 export default Temperature;
-export { Temperature };
