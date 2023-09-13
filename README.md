@@ -23,24 +23,59 @@ Units of temperature are from "[Wikipedia - Conversion of scales of temperature]
 | **Rømer** | `Roemer` | `Rømer` | `Ro` | `°Rø` | `Romer` |
 | **Sir Isaac Newton's degree of temperature (Newton)** | `Newton` | `Newton` | `N` | `°N` |  |
 
-## 📓 Documentation
+## ⚠️ Important
 
-### Getting Started
-
-- NodeJS ^ v12.20.0 \|\| ^ v14.15.0 \|\| >= v16.13.0
-
-```sh
-npm install @hugoalh/temperature
-```
+This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. Floating point numbers round-off errors can occur during calculations:
 
 ```js
-/* Either */
-import { ... } from "@hugoalh/temperature";// Named Import
-import * as temperature from "@hugoalh/temperature";// Namespace Import
-import Temperature from "@hugoalh/temperature";// Default Import (Class `Temperature`)
+0.1 + 0.2;
+//=> 0.30000000000000004
 ```
 
-### API
+In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
+
+```js
+(0.1 + 0.2).toPrecision(14);
+//=> 0.3
+```
+
+## 🔰 Begin
+
+### Bun
+
+> **🧪 Experimental:** Bun is still under development.
+
+- **Target Version:** ^ v1.0.0, &:
+  - TypeScript >= v5.1.0 *\[Development\]*
+- **Require Permission:** *N/A*
+- **Domain/Registry:**
+  - [NPM](https://www.npmjs.com/package/@hugoalh/temperature)
+    ```sh
+    bun add @hugoalh/temperature
+    ```
+    ```js
+    import ... from "@hugoalh/temperature[@<Tag>]";
+    ```
+
+> **ℹ️ Notice:** It is also able to import part of the module with sub path if available, see [file `package.json`](./package.json) property `exports` for available sub paths.
+
+### NodeJS
+
+- **Target Version:** ^ v12.20.0 \|\| ^ v14.15.0 \|\| >= v16.13.0, &:
+  - TypeScript >= v5.1.0 *\[Development\]*
+- **Require Permission:** *N/A*
+- **Domain/Registry:**
+  - [NPM](https://www.npmjs.com/package/@hugoalh/temperature)
+    ```sh
+    npm install @hugoalh/temperature
+    ```
+    ```js
+    import ... from "@hugoalh/temperature";
+    ```
+
+> **ℹ️ Notice:** It is also able to import part of the module with sub path if available, see [file `package.json`](./package.json) property `exports` for available sub paths.
+
+## 🧩 API
 
 - ```ts
   class Temperature {
@@ -65,37 +100,22 @@ import Temperature from "@hugoalh/temperature";// Default Import (Class `Tempera
   }
   ```
 
-### Example
+> **ℹ️ Notice:** Documentation is included inside the script file.
+
+## ✍️ Example
 
 - ```js
+  import { Temperature } from "@hugoalh/temperature";
+
   new Temperature(25, "C").toValue("K");
   //=> 298.15
-  ```
-- ```js
+
   new Temperature(25, "C").toStringStandard("K");
   //=> "298.15 K"
-  ```
-- ```js
+
   new Temperature(298.15).toValue("C");
   //=> 25
-  ```
-- ```js
+
   new Temperature(298.15).toStringStandard("C");
   //=> "25 °C"
   ```
-
-### ℹ️ Notice
-
-This module uses the built in JavaScript `Number` type, which is a floating point number with a limited precision of 64 bits, about 16 digits. Floating point numbers round-off errors can occur during calculations:
-
-```js
-0.1 + 0.2;
-//=> 0.30000000000000004
-```
-
-In most cases, round-off errors do not matter, they have no significant impact on the results. However, it looks ugly when displaying output to a user. A solution is to limit the precision just below the actual precision of 16 digits in the displayed output:
-
-```js
-(0.1 + 0.2).toPrecision(14);
-//=> 0.3
-```
