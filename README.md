@@ -51,7 +51,7 @@ In most cases, round-off errors do not matter, they have no significant impact o
 - **Domain/Registry:**
   - [NPM](https://www.npmjs.com/package/@hugoalh/temperature)
     ```sh
-    bun add @hugoalh/temperature
+    bun add @hugoalh/temperature[@<Tag>]
     ```
     ```js
     import ... from "@hugoalh/temperature[@<Tag>]";
@@ -67,7 +67,7 @@ In most cases, round-off errors do not matter, they have no significant impact o
 - **Domain/Registry:**
   - [NPM](https://www.npmjs.com/package/@hugoalh/temperature)
     ```sh
-    npm install @hugoalh/temperature
+    npm install @hugoalh/temperature[@<Tag>]
     ```
     ```js
     import ... from "@hugoalh/temperature";
