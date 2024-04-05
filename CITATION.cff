@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://citation-file-format.github.io/1.2.0/schema.json
+cff-version: "1.2.0"
+title: "Temperature (ES)"
+message: "If you use this software, please cite it using the metadata from this file."
+type: "software"
+authors:
+  - name: "hugoalh Studio"
+repository-code: "https://github.com/hugoalh-studio/temperature-es"
+keywords:
+  - "conversion"
+  - "convert"
+  - "es"
+  - "javascript"
+  - "js"
+  - "modulejs"
+  - "scale"
+  - "scales"
+  - "temperature"
+  - "ts"
+  - "typescript"
+  - "unit"
+  - "units"
+license: "MIT"
