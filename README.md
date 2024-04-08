@@ -187,22 +187,35 @@ Units of the temperature are from "[Wikipedia - Conversion of scales of temperat
   ```
 - ```ts
   interface TemperatureUnitMeta {
+    /**
+     * Whether this is the SI unit of the temperature.
+     */
     isSIUnit: boolean;
+    /**
+     * Names of the temperature unit, the standard name is at the first index.
+     */
     names: string[];
+    /**
+     * ASCII symbol of the temperature unit, design for internal usage.
+     */
+    symbolASCII: string;
+    /**
+     * Symbols of the temperature unit, the standard symbol is at the first index.
+     */
     symbols: string[];
   }
   ```
 - ```ts
-  type TemperatureUnitsInput = TemperatureUnitsNames | TemperatureUnitsSymbols;
+  type TemperatureUnitsInput = TemperatureUnitsNames | TemperatureUnitsSymbolASCII | TemperatureUnitsSymbols;
   ```
 - ```ts
-  type TemperatureUnitsNames = typeof unitsNames[TemperatureUnitsSymbolBase][number];
+  type TemperatureUnitsNames = typeof unitsNames[TemperatureUnitsSymbolASCII][number];
   ```
 - ```ts
-  type TemperatureUnitsSymbolBase = keyof typeof unitsSymbols;
+  type TemperatureUnitsSymbolASCII = keyof typeof unitsSymbols;
   ```
 - ```ts
-  type TemperatureUnitsSymbols = TemperatureUnitsSymbolBase | typeof unitsSymbols[TemperatureUnitsSymbolBase][number];
+  type TemperatureUnitsSymbols = typeof unitsSymbols[TemperatureUnitsSymbolASCII][number];
   ```
 
 > **ℹ️ Note**
