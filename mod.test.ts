@@ -1,7 +1,7 @@
 import { assertEquals } from "TEST/assert_equals.ts";
 import { Temperature } from "./mod.ts";
 Deno.test("Conversion 1", { permissions: "none" }, async (t) => {
-	const temperatureRoomFromC: Temperature = new Temperature(25, "C");
+	const temperatureRoomFromC = new Temperature(25, "C");
 	await t.step("To Object", () => {
 		console.log(temperatureRoomFromC.toObject());
 	});
@@ -13,7 +13,7 @@ Deno.test("Conversion 1", { permissions: "none" }, async (t) => {
 	});
 });
 Deno.test("Conversion 2", { permissions: "none" }, async (t) => {
-	const temperatureRoomFromF: Temperature = new Temperature(298.15);
+	const temperatureRoomFromF = new Temperature(298.15);
 	await t.step("To Object", () => {
 		console.log(temperatureRoomFromF.toObject());
 	});
