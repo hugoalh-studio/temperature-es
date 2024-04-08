@@ -172,14 +172,14 @@ export class Temperature {
 		if (!(typeof fromValue === "number" && !Number.isNaN(fromValue))) {
 			throw new TypeError(`Argument \`fromValue\` must be type of number!`);
 		}
-		const fromUnitSymbolBase: TemperatureUnitsSymbolASCII = resolveUnitInput(fromUnit);
-		this.#table.set(fromUnitSymbolBase, fromValue);
-		if (fromUnitSymbolBase !== unitSISymbolASCII) {
-			this.#table.set(unitSISymbolASCII, unitsConverters[fromUnitSymbolBase].toSI(fromValue));
+		const fromUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput(fromUnit);
+		this.#table.set(fromUnitSymbolASCII, fromValue);
+		if (fromUnitSymbolASCII !== unitSISymbolASCII) {
+			this.#table.set(unitSISymbolASCII, unitsConverters[fromUnitSymbolASCII].toSI(fromValue));
 		}
-		for (const [unitSymbolBase, unitConverter] of (Object.entries(unitsConverters) as [TemperatureUnitsSymbolASCII, UnitConverter][])) {
-			if (!this.#table.has(unitSymbolBase)) {
-				this.#table.set(unitSymbolBase, unitConverter.fromSI(this.#table.get(unitSISymbolASCII)!));
+		for (const [unitSymbolASCII, unitConverter] of (Object.entries(unitsConverters) as [TemperatureUnitsSymbolASCII, UnitConverter][])) {
+			if (!this.#table.has(unitSymbolASCII)) {
+				this.#table.set(unitSymbolASCII, unitConverter.fromSI(this.#table.get(unitSISymbolASCII)!));
 			}
 		}
 	}
@@ -196,8 +196,8 @@ export class Temperature {
 	 * @returns {string} Value of the unit with standard symbol.
 	 */
 	toString(toUnit: TemperatureUnitsInput = "K"): string {
-		const toUnitSymbolBase: TemperatureUnitsSymbolASCII = resolveUnitInput(toUnit);
-		return `${this.#table.get(toUnitSymbolBase)!} ${unitsSymbols[toUnitSymbolBase][0]}`;
+		const toUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput(toUnit);
+		return `${this.#table.get(toUnitSymbolASCII)!} ${unitsSymbols[toUnitSymbolASCII][0]}`;
 	}
 	/**
 	 * Get value of the unit.

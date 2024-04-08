@@ -175,7 +175,7 @@ Units of the temperature are from "[Wikipedia - Conversion of scales of temperat
 - ```ts
   class Temperature {
     constructor(fromValue: number, fromUnit: TemperatureUnitsInput = "K"): Temperature;
-    toObject(): Record<TemperatureUnitsSymbolBase, number>;
+    toObject(): Record<TemperatureUnitsSymbolASCII, number>;
     toString(toUnit: TemperatureUnitsInput = "K"): string;
     toValue(toUnit: TemperatureUnitsInput = "K"): number;
     static unit(unit: TemperatureUnitsInput = "K"): TemperatureUnitMeta;
