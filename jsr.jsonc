@@ -1,7 +1,7 @@
 // This file is only for JSR related, non-JSR related must set in the file `deno.jsonc`!
 {
 	"name": "@hugoalh/temperature",
-	"version": "3.0.0",
+	"version": "3.0.0-beta.1",
 	"exports": {
 		".": "./mod.ts"
 	},
