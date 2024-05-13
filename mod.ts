@@ -170,7 +170,7 @@ export class Temperature {
 	 */
 	constructor(fromValue: number, fromUnit: TemperatureUnitsInput = "K") {
 		if (!(typeof fromValue === "number" && !Number.isNaN(fromValue))) {
-			throw new TypeError(`Argument \`fromValue\` must be type of number!`);
+			throw new TypeError(`\`${fromValue}\` (parameter \`fromValue\`) is not a number!`);
 		}
 		const fromUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput(fromUnit);
 		this.#table.set(fromUnitSymbolASCII, fromValue);
