@@ -141,23 +141,24 @@ export interface TemperatureUnitMeta {
 /**
  * Resolve unit input as ASCII symbol of the unit.
  * @access private
- * @param {string} unitInput Unit input.
+ * @param {string} parameterName Name of the parameter.
+ * @param {string} value Unit input.
  * @returns {TemperatureUnitsSymbolASCII} ASCII symbol of the unit.
  */
-function resolveUnitInput(unitInput: string): TemperatureUnitsSymbolASCII {
+function resolveUnitInput(parameterName: string, value: string): TemperatureUnitsSymbolASCII {
 	for (const [unitSymbolASCII, unitSymbols] of Object.entries(unitsSymbols)) {
 		const unitNames = unitsNames[unitSymbolASCII as TemperatureUnitsSymbolASCII];
 		if (
-			unitInput === unitSymbolASCII ||
+			value === unitSymbolASCII ||
 			//@ts-ignore Type conflict not exist.
-			unitSymbols.includes(unitInput) ||
+			unitSymbols.includes(value) ||
 			//@ts-ignore Type conflict not exist.
-			unitNames.includes(unitInput)
+			unitNames.includes(value)
 		) {
 			return unitSymbolASCII as TemperatureUnitsSymbolASCII;
 		}
 	}
-	throw new SyntaxError(`\`${unitInput}\` is not a known temperature unit!`);
+	throw new SyntaxError(`\`${value}\` (parameter \`${parameterName}\`) is not a known temperature unit!`);
 }
 /**
  * Convert between units of the temperature.
@@ -172,7 +173,7 @@ export class Temperature {
 		if (!(typeof fromValue === "number" && !Number.isNaN(fromValue))) {
 			throw new TypeError(`\`${fromValue}\` (parameter \`fromValue\`) is not a number!`);
 		}
-		const fromUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput(fromUnit);
+		const fromUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput("fromUnit", fromUnit);
 		this.#table.set(fromUnitSymbolASCII, fromValue);
 		if (fromUnitSymbolASCII !== unitSISymbolASCII) {
 			this.#table.set(unitSISymbolASCII, unitsConverters[fromUnitSymbolASCII].toSI(fromValue));
@@ -196,7 +197,7 @@ export class Temperature {
 	 * @returns {string} Value of the unit with standard symbol.
 	 */
 	toString(toUnit: TemperatureUnitsInput = "K"): string {
-		const toUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput(toUnit);
+		const toUnitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput("toUnit", toUnit);
 		return `${this.#table.get(toUnitSymbolASCII)!} ${unitsSymbols[toUnitSymbolASCII][0]}`;
 	}
 	/**
@@ -205,7 +206,7 @@ export class Temperature {
 	 * @returns {number} Value of the unit.
 	 */
 	toValue(toUnit: TemperatureUnitsInput = "K"): number {
-		return this.#table.get(resolveUnitInput(toUnit))!;
+		return this.#table.get(resolveUnitInput("toUnit", toUnit))!;
 	}
 	/**
 	 * Get meta of the unit.
@@ -213,7 +214,7 @@ export class Temperature {
 	 * @returns {TemperatureUnitMeta} Meta of the unit.
 	 */
 	static unit(unit: TemperatureUnitsInput = "K"): TemperatureUnitMeta {
-		const unitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput(unit);
+		const unitSymbolASCII: TemperatureUnitsSymbolASCII = resolveUnitInput("unit", unit);
 		return {
 			isSIUnit: unitSymbolASCII === unitSISymbolASCII,
 			names: [...unitsNames[unitSymbolASCII as TemperatureUnitsSymbolASCII] as unknown as string[]],
