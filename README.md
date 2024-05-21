@@ -3,7 +3,7 @@
 [**⚖️** MIT](./LICENSE.md)
 
 [![GitHub: hugoalh-studio/temperature-es](https://img.shields.io/github/v/release/hugoalh-studio/temperature-es?label=hugoalh-studio/temperature-es&labelColor=181717&logo=github&logoColor=ffffff&sort=semver&style=flat "GitHub: hugoalh-studio/temperature-es")](https://github.com/hugoalh-studio/temperature-es)
-[![JSR: @hugoalh/temperature](https://img.shields.io/jsr/v/@hugoalh/temperature?label=JSR%20@hugoalh/temperature&labelColor=F7DF1E&logoColor=000000&style=flat "JSR: @hugoalh/temperature")](https://jsr.io/@hugoalh/temperature)
+[![JSR: @hugoalh/temperature](https://img.shields.io/jsr/v/@hugoalh/temperature?label=@hugoalh/temperature&labelColor=F7DF1E&logo=jsr&logoColor=000000&style=flat "JSR: @hugoalh/temperature")](https://jsr.io/@hugoalh/temperature)
 [![NPM: @hugoalh/temperature](https://img.shields.io/npm/v/@hugoalh/temperature?label=@hugoalh/temperature&labelColor=CB3837&logo=npm&logoColor=ffffff&style=flat "NPM: @hugoalh/temperature")](https://www.npmjs.com/package/@hugoalh/temperature)
 
 An ES (JavaScript & TypeScript) module to convert between units of the temperature.
